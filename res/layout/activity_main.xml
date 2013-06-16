@@ -2,13 +2,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity" >    
+    
+    <!-- Main Container -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:layout_alignParentTop="true"
+    	android:orientation="vertical"
+    	tools:context=".MainActivity" >
+    
+        <!-- Choose Date -->
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		xmlns:tools="http://schemas.android.com/tools"
+    		android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:orientation="horizontal"
+    		android:gravity="center"
+    		tools:context=".MainActivity" >
+    		
+       		<ImageButton 
+		    	android:id="@+id/button_prev_day"
+			    android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_margin="3dp"
+				android:padding="3dp"
+				android:onClick="previousDay"
+				android:src="@drawable/arrow_left"
+				android:contentDescription="@string/button_prev_day"
+			/>
+            
+    		<TextView
+    		    android:id="@+id/textview_date"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:layout_marginLeft="10dp"
+        		android:layout_marginRight="10dp"
+        		android:textSize="22sp"
+        		android:clickable="true"
+				android:onClick="today"
+        	/>
+    	       		    
+       		<ImageButton 
+		    	android:id="@+id/button_next_day"
+			    android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:adjustViewBounds="true"
+				android:layout_weight="1"
+				android:layout_margin="3dp"
+				android:padding="3dp"
+				android:onClick="nextDay"
+				android:src="@drawable/arrow_right"
+				android:contentDescription="@string/button_next_day"
+			/>
+       		
+    	</LinearLayout>
+        
+        
+   	</LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+    <!-- 
+	<com.google.ads.AdView android:id="@+id/adView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		ads:adUnitId="a151a9eb3337bdc" #TODO: change
+		ads:adSize="BANNER"		
+		ads:loadAdOnCreate="true"
+	/>
+    -->>
 
 </RelativeLayout>
