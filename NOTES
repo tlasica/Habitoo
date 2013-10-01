@@ -1,0 +1,24 @@
+TODO:
+
+M	formualrz do wprowadzania nazwy i opisu nowego celu
+C	zmiana nazwy na Habitoo (i konsekwentnie nazewnictwa)
+C 	dodanie ikonek do context menu
+C	zmiana daty wg kalendarza
+S	nagrody za przeskoczenie na kolejny poziom
+M	wyliczanie chmurki na podstawie historii ostatnich max 21 dni
+C	dodanie ekranu "Help"
+S	performance stats czyli po prostu jakiś widok z wykresem lub może kalendarzem?
+M	implementacja "Stop"
+M	inteligentne wypisywanie komentarza lub opisu celu
+
+
+==Logo==
+
+Kompas
+https://www.iconfinder.com/icons/183315/compass_navigation_icon#size=128
+darmowa, dość fajna - trzeba zmienić kolor
+
+Lighthouse
+https://www.iconfinder.com/icons/141313/course_house_light_lighthouse_navigate_navigation_navigator_sea_valid_icon#size=512
+bardzo fajna, 1$
+

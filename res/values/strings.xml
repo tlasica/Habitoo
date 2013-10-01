@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">KeepDoing</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
-    <string name="button_prev_day">previous</string>
+    <string name="app_name">Goalero</string>
+    <string name="menu_addgoal">New goal...</string>
+    <string name="button_prev_day">prev</string>
     <string name="button_next_day">next</string>
+    <string name="hint">tap to set daily status, swipe to change day</string>
+    <string name="list_action_success">Mark as success!</string>
+    <string name="list_action_fail">Mark as failed :(</string>
+    <string name="list_action_clear">Clear</string>
+    <string name="list_action_stats">Show performance...</string> 
+    <string name="list_action_stop">Stop tracking</string> 
     
 </resources>

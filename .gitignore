@@ -1,0 +1,7 @@
+.idea
+bin
+gen
+out
+hs_err_*
+*~
+

@@ -1,0 +1,38 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/goal_success"
+        android:orderInCategory="100"
+        android:showAsAction="withText"
+        android:onClick="onMenuGoalSuccess"        
+        android:title="@string/list_action_success"/>
+
+    <item
+        android:id="@+id/goal_fail"
+        android:orderInCategory="110"
+        android:showAsAction="withText"
+        android:onClick="onMenuGoalFail"
+        android:title="@string/list_action_fail"/>
+
+    <item
+        android:id="@+id/goal_clear"
+        android:orderInCategory="120"
+        android:showAsAction="withText"
+        android:onClick="onMenuGoalClear"
+        android:title="@string/list_action_clear"/>
+
+    <item
+        android:id="@+id/goal_stats"
+        android:orderInCategory="200"
+        android:showAsAction="withText"
+        android:onClick="onMenuGoalStats"
+        android:title="@string/list_action_stats"/>
+
+    <item
+        android:id="@+id/goal_stop"
+        android:orderInCategory="300"
+        android:showAsAction="withText"
+        android:onClick="onMenuGoalStop"
+        android:title="@string/list_action_stop"/>
+    
+</menu>
