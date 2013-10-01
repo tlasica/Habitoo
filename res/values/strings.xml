@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Goalero</string>
+    <string name="app_name">Habitoo</string>
     <string name="menu_addgoal">New goal...</string>
     <string name="button_prev_day">prev</string>
     <string name="button_next_day">next</string>
@@ -10,6 +10,13 @@
     <string name="list_action_fail">Mark as failed :(</string>
     <string name="list_action_clear">Clear</string>
     <string name="list_action_stats">Show performance...</string> 
-    <string name="list_action_stop">Stop tracking</string> 
-    
+    <string name="list_action_stop">Stop tracking</string>
+    <string name="newgoal_text"></string>
+    <string name="newgoal_name_hint">Name</string>
+    <string name="newgoal_desc_hint">A question which help you mark the daily goal status as succes</string>
+    <string name="newgoal_save">Save</string>
+    <string name="newgoal_cancel">Cancel</string> 
+    <string name="newgoal_err_namereq">Name cannot be empty</string>
+    <string name="newgoal_title">Define new goal</string>
+         
 </resources>

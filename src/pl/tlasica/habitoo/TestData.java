@@ -1,4 +1,4 @@
-package pl.tlasica.goalero;
+package pl.tlasica.habitoo;
 
 import java.util.List;
 

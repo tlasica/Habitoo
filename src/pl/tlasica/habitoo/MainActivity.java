@@ -1,9 +1,11 @@
-package pl.tlasica.goalero;
+package pl.tlasica.habitoo;
 
 import java.util.Calendar;
-import java.util.Random;
+
+import pl.tlasica.goalero.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
@@ -25,6 +27,8 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+	private static final int REQUEST_CODE_NEWGOAL = 1813;
+	
 	private Calendar 				currDay = Calendar.getInstance();
 	private TextView 				mCurrDayText;
 	private GestureDetectorCompat 	mDetector;
@@ -125,11 +129,21 @@ public class MainActivity extends Activity {
     }
     
     public boolean onMenuNewGoal(MenuItem item) {
-    	String name = "Test goal #" + new Random().nextInt(100);
-    	mDay.newGoal(name, "artifical goal for testing");
-        Toast.makeText(MainActivity.this, name + " created", Toast.LENGTH_SHORT).show();
-        this.updateContent();
+		Intent intent = new Intent(this, NewGoalActivity.class);
+		startActivityForResult(intent, REQUEST_CODE_NEWGOAL);
         return true;
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	if (requestCode==REQUEST_CODE_NEWGOAL && resultCode==RESULT_OK) {
+    		String name = data.getStringExtra("name");
+    		String desc = data.getStringExtra("desc");
+        	mDay.newGoal(name, desc);
+            Toast.makeText(MainActivity.this, name + " created!", Toast.LENGTH_SHORT).show();
+            this.updateContent();
+    		
+    	}
     }
     
 	@Override

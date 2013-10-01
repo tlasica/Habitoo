@@ -14,13 +14,22 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="pl.tlasica.goalero.MainActivity"
+            android:name="pl.tlasica.habitoo.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="pl.tlasica.habitoo.NewGoalActivity"
+            android:label="@string/newgoal_title" 
+            android:exported="false"
+            android:parentActivityName="pl.tlasica.habitoo.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pl.tlasica.habitoo.MainActivity" />
         </activity>
     </application>
 

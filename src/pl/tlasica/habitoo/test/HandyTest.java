@@ -1,11 +1,11 @@
-package pl.tlasica.goalero.test;
+package pl.tlasica.habitoo.test;
 import static org.junit.Assert.*;
 
 import java.util.Calendar;
 
 import org.junit.Test;
 
-import pl.tlasica.goalero.Handy;
+import pl.tlasica.habitoo.Handy;
 
 public class HandyTest {
 

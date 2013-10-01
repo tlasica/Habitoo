@@ -1,4 +1,4 @@
-package pl.tlasica.goalero;
+package pl.tlasica.habitoo;
 
 import java.util.Calendar;
 
@@ -16,6 +16,11 @@ public class Handy {
 		Calendar c = Calendar.getInstance();
 		c.set(num/10000, (num%10000)/100, num%100);
 		return c;
+	}
+	
+	public static final int diffDays(Calendar a, Calendar b) {
+		long diff = Math.abs( a.getTimeInMillis() - b.getTimeInMillis());
+		return (int)(diff / (1000 * 60 * 60 * 24));
 	}
 
 }

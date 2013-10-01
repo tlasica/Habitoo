@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Goalero</string>
     <string name="menu_addgoal">Nowy cel...</string>
     <string name="button_prev_day">poprzedni</string>
     <string name="button_next_day">następny</string>

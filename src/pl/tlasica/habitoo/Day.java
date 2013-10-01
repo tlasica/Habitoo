@@ -1,4 +1,4 @@
-package pl.tlasica.goalero;
+package pl.tlasica.habitoo;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -54,8 +54,7 @@ public class Day {
 			GoalListItem item = new GoalListItem(g.name);
 			item.goalId = g.id;
 			item.daysTracked = 10;	//TODO in Handy
-			
-			//TODO: extract method
+			item.text = g.desc;			
 			for(GoalDay d : gdList) {
 				if (d.goalId == g.id) {
 					item.done = d.status;

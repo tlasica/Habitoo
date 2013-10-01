@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NewGoalActivity" >
+
+    <EditText android:id="@+id/newgoal_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+    	android:singleLine="true"
+        android:hint="@string/newgoal_name_hint" />
+    
+    <EditText android:id="@+id/newgoal_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+    	android:singleLine="false"
+    	android:lines="3"        
+        android:hint="@string/newgoal_desc_hint" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="horizontal"
+    	>
+    	
+	   <Button
+	       android:text="@string/newgoal_save"
+	       android:layout_height="wrap_content"
+	       android:layout_width="wrap_content"
+	       android:layout_margin="10dp"
+		android:onClick="onSave"
+	       />    
+
+	    <Button
+	        android:text="@string/newgoal_cancel"
+	        android:layout_height="wrap_content"
+	        android:layout_width="wrap_content"
+	        android:layout_margin="10dp"
+			android:onClick="onCancel"
+	        />    
+
+	    </LinearLayout>
+</LinearLayout>

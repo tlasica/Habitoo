@@ -1,4 +1,4 @@
-package pl.tlasica.goalero;
+package pl.tlasica.habitoo;
 
 public class GoalListItem {
 
