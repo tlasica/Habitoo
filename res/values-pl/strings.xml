@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="menu_addgoal">Nowy cel...</string>
-    <string name="button_prev_day">poprzedni</string>
-    <string name="button_next_day">następny</string>
-    <string name="hint">dotknij aby zmienić status, przeciągnij aby zmienić datę</string>
-    <string name="list_action_success">Oznacz jako sukces!</string>
-    <string name="list_action_fail">Oznacz jako nieudane</string>
-    <string name="list_action_clear">Wyczyść dzisiejszy stan</string>
-    <string name="list_action_stats">Pokaż statystyki...</string> 
-    <string name="list_action_stop">Usuń cel</string> 
-    
+    <string name="app_name">Goals Keeper</string>
+    <string name="menu_addgoal">Postaw sobie nowy cel...</string>
+    <string name="hint">kliknij na element...</string>
+    <string name="list_action_success">Taaak! Dzisiaj się udało!</string>
+    <string name="list_action_fail">No niestety :-(</string>
+    <string name="list_action_stats">Pokaż statystyki...</string>
+    <string name="list_action_stop">Przestaję monitorować</string>
+    <string name="newgoal_text">Text</string>
+    <string name="newgoal_name_hint">Name</string>
+    <string name="newgoal_desc_hint">Krótki opis lub pytanie, które przypomni Ci co miałeś zamiar robić</string>
+    <string name="newgoal_save">Zapisz</string>
+    <string name="newgoal_cancel">Anuluj</string>
+    <string name="newgoal_err_namereq">Nazwa celu/postanowienia jest wymagana</string>
+    <string name="newgoal_title">Opisz swój cel/postanowienie</string>
+    <string name="marked_success">udało się!</string>
+    <string name="marked_fail">porażka :-(</string>
+    <string name="toast_goal_removed">usunięty z listy postanowień</string>
+    <string name="action_stop">przestań rejestrować</string>
+    <string name="tracked_since">Od: </string>
+    <string name="menu_help">Pomoc</string>
+    <string name="text_help">
+        Aplikacja pozwala rejestrować, czy udaje Ci sie utrzymywać swoje postanowienia.
+        Na przykład codziennie się podciągać albo nie jeść słodyczy.
+        \n\n
+        Aby dodac nowe postanowienie użyj opcji z menu.
+        \n\n
+        Aby zarejestrować że Ci się dzisiaj udało kliknij w postanowienie
+        i wybierz Taaak!
+        \n\n
+        Aktualną datę możesz zmieniać przeciągajac palcem (swipe) w okolicy pola z datą.
+        Kliknięcie w to pole przywróci aktualną datę.
+        \n\n
+        Powodzenia!
+    </string>
+
 </resources>

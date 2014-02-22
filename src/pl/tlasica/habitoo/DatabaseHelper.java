@@ -1,18 +1,15 @@
 package pl.tlasica.habitoo;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -91,8 +88,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	    	} while( cur.moveToNext() );
     	}    	    	
     	return res;
-    	//TODO: wczytać statusy na każdy dzień
-    	//TODO wczytać liczniki udanych na każdy dzień
     }
         
     // load all statuses reported for particular date
@@ -110,6 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	    		gd.tstamp = Handy.numToCal( cur.getInt(2));
 	    		Integer status = cur.getInt(3);
 	    		if (status!=null) gd.status = (status>0);
+                gd.notes = cur.getString(4);
 	    		res.add(gd);
 	    	} while( cur.moveToNext() );
     	}    	    	
@@ -129,7 +125,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     		db.insert("goalday", null, values);    		
     	}
     }
-        
+
+    public boolean removeGoal(int goalId, Calendar day) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("removedon", Handy.calToNum(day));
+        int updated = db.update("goal", values, "(_id=?)", new String[]{String.valueOf(goalId)});
+        debug("removeGoal id:"+ goalId + " when:" + Handy.calToNum(day) + " updated:" + updated);
+        return (updated>0);
+    }
+
+    public List<GoalDay> getGoalHistory(int goalId, Calendar now) {
+        List<GoalDay> res = new ArrayList<GoalDay>();
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cur = db.rawQuery("select _id, goalid, tstamp, status, notes from goalday where goalid=? order by tstamp desc", new String[]{String.valueOf(goalId)});
+        if (cur.moveToFirst() ) {
+            do {
+                GoalDay gd = new GoalDay();
+                gd.id = cur.getInt(0);
+                gd.goalId = cur.getInt(1);
+                gd.tstamp = Handy.numToCal( cur.getInt(2));
+                Integer status = cur.getInt(3);
+                if (status!=null) gd.status = (status>0);
+                gd.notes = cur.getString(4);
+                res.add(gd);
+                Log.d("DATABASE", "history load goalid: " + gd.goalId + " tstamp:" + Handy.toString(gd.tstamp) );
+            } while( cur.moveToNext() );
+        }
+        return res;
+    }
+
+    private void debug(String msg) {
+        Log.d("DATABASE", msg);
+    }
+
     /*
 
     

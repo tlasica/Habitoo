@@ -1,11 +1,11 @@
 package pl.tlasica.habitoo.test;
-import static org.junit.Assert.*;
+
+import org.junit.Test;
+import pl.tlasica.habitoo.Handy;
 
 import java.util.Calendar;
 
-import org.junit.Test;
-
-import pl.tlasica.habitoo.Handy;
+import static org.junit.Assert.assertEquals;
 
 public class HandyTest {
 

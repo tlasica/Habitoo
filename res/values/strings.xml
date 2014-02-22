@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Habitoo</string>
-    <string name="menu_addgoal">New goal...</string>
-    <string name="button_prev_day">prev</string>
-    <string name="button_next_day">next</string>
-    <string name="hint">tap to set daily status, swipe to change day</string>
-    <string name="list_action_success">Mark as success!</string>
-    <string name="list_action_fail">Mark as failed :(</string>
-    <string name="list_action_clear">Clear</string>
-    <string name="list_action_stats">Show performance...</string> 
-    <string name="list_action_stop">Stop tracking</string>
-    <string name="newgoal_text"></string>
+    <string name="app_name">Goals Keeper</string>
+    <string name="menu_addgoal">Add new goal...</string>
+    <string name="hint">tap item for actions...</string>
+    <string name="list_action_success">Yeah! I succeeded!</string>
+    <string name="list_action_fail">Well, actually... I failed :-(</string>
+    <string name="list_action_stats">Show my performance...</string>
+    <string name="list_action_stop">Stop tracking this goal</string>
+    <string name="newgoal_text">Text</string>
     <string name="newgoal_name_hint">Name</string>
-    <string name="newgoal_desc_hint">A question which help you mark the daily goal status as succes</string>
+    <string name="newgoal_desc_hint">Brief description e.g. a question which will remind you the definition of done</string>
     <string name="newgoal_save">Save</string>
     <string name="newgoal_cancel">Cancel</string> 
     <string name="newgoal_err_namereq">Name cannot be empty</string>
     <string name="newgoal_title">Define new goal</string>
-         
+    <string name="marked_success">succeeded!</string>
+    <string name="marked_fail">failed :-(</string>
+    <string name="toast_goal_removed">tracking is finished</string>
+    <string name="action_stop">stop tracking</string>
+    <string name="tracked_since">Since:</string>
+    <string name="menu_help">Help</string>
+    <string name="text_help">
+        This application help to monitor if you succeed (daily) with you goals, habits or commitments.
+        Good examples are daily push-ups or eating sweets.
+        \n\n
+        Use menu option to add new goal.
+        \n\n
+        To mark a success of failure click on the goal.
+        \n\n\
+        Swipe date field to go next or previous day.
+        \n\n
+        Good luck!
+    </string>
+
 </resources>

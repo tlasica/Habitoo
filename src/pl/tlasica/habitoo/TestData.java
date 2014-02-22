@@ -4,7 +4,8 @@ import java.util.List;
 
 public class TestData {
 
-	public static final void feed(List<GoalListItem> goals) {
+	public static void feed(List<GoalListItem> goals) {
+        /*
 		GoalListItem i;
 		i = new GoalListItem("No sweets").setStats(10, 13, GoalListItem.Progress.STATUS_GOOD);
 		i.done = true;
@@ -23,7 +24,8 @@ public class TestData {
 		i.done = null;
 		i.text = "Unfortunatelly I'm not able to stop all of those things together." +
 		"It makes me furious and tired, but I have to. What to do?";
-		goals.add( i );		
+		goals.add( i );
+				*/
 	}
 
 }

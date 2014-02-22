@@ -1,29 +1,23 @@
 package pl.tlasica.habitoo;
 
-import java.util.Calendar;
-
-import pl.tlasica.goalero.R;
-
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.text.format.DateFormat;
 import android.util.Log;
-import android.view.ContextMenu;
+import android.view.*;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.GestureDetector;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import pl.tlasica.goalero.R;
+
+import java.util.Calendar;
 
 public class MainActivity extends Activity {
 
@@ -32,9 +26,8 @@ public class MainActivity extends Activity {
 	private Calendar 				currDay = Calendar.getInstance();
 	private TextView 				mCurrDayText;
 	private GestureDetectorCompat 	mDetector;
-	private ListView				mListView;
-	private GoalListAdapter			mListAdapter;
-	//private List<GoalListItem>		goals;
+    private GoalListAdapter			mListAdapter;
+	//private List<GoalListItem>	goals;
 	private Day						mDay;
 	
 	protected Object mActionMode;
@@ -50,11 +43,11 @@ public class MainActivity extends Activity {
 		// init list view
 		//goals = new ArrayList<GoalListItem>();
 		mDay = Day.create( getApplicationContext() );
-		mListView = (ListView) findViewById(R.id.listview);
+        ListView mListView = (ListView) findViewById(R.id.listview);
 		mListAdapter = new GoalListAdapter(this, R.layout.listview, mDay.goals());
-		mListView.setAdapter( mListAdapter );
-		mListView.setOnItemClickListener( onItemClickListener() );
-		this.registerForContextMenu( mListView );
+		mListView.setAdapter(mListAdapter);
+		mListView.setOnItemClickListener(onItemClickListener());
+		this.registerForContextMenu(mListView);
 		// gesture detector to swipe => change date
 		mDetector = new GestureDetectorCompat(this, new MyGestureListener() );
 		// update content
@@ -81,57 +74,58 @@ public class MainActivity extends Activity {
       inflater.inflate(R.menu.listview_actions, menu);
     }    
 
-    public boolean onMenuGoalSuccess(MenuItem item) {
+    public void onMenuGoalSuccess(MenuItem item) {
     	if (selectedItem >= 0) {
 	    	String name = mDay.goals().get(selectedItem).name;
 	    	mDay.markDone(selectedItem, true);
 	    	selectedItem = -1;
 	    	updateContent();
-	        Toast.makeText(MainActivity.this, name + ": DONE!", Toast.LENGTH_SHORT).show();
+	        Toast.makeText(MainActivity.this, name + "\n" + getString(R.string.marked_success), Toast.LENGTH_SHORT).show();
     	}
-        return true;
     }
 
-    public boolean onMenuGoalFail(MenuItem item) {
+    public void onMenuGoalFail(MenuItem item) {
     	if (selectedItem >= 0) {
+            String name = mDay.goals().get(selectedItem).name;
 	    	mDay.markDone(selectedItem, false);
 	    	selectedItem = -1;
 	    	updateContent();
+            Toast.makeText(MainActivity.this, name + "\n" + getString(R.string.marked_fail), Toast.LENGTH_SHORT).show();
     	}
-        return true;
     }
 
-    public boolean onMenuGoalClear(MenuItem item) {
-    	if (selectedItem >= 0) {
-	    	mDay.markDone(selectedItem, null);
-	    	selectedItem = -1;
-	    	updateContent();
-    	}
-        return true;
-    }
-    
     public boolean onMenuGoalStats(MenuItem item) {
     	if (selectedItem >= 0) {
-	    	String name = mDay.goals().get(selectedItem).name;
-	        Toast.makeText(MainActivity.this, name + ": Statistics to be implemented", Toast.LENGTH_SHORT).show();
+            GoalListItem goalListItem = mDay.goals().get(selectedItem);
+            String name = goalListItem.name;
+            //TODO: new activity to show statistics (how?)
+            Toast.makeText(MainActivity.this, name + "\r\n: Statistics to be implemented", Toast.LENGTH_SHORT).show();
 	    	selectedItem = -1;
     	}
         return true;
     }
     
-    public boolean onMenuGoalStop(MenuItem item) {
+    public void onMenuGoalStop(MenuItem item) {
     	if (selectedItem >= 0) {
-	    	String name = mDay.goals().get(selectedItem).name;
-	        Toast.makeText(MainActivity.this, name + ": STOP to be implemented", Toast.LENGTH_SHORT).show();
+            GoalListItem goal = mDay.goals().get(selectedItem);
+            mDay.removeGoal(selectedItem);
 	    	selectedItem = -1;
+            updateContent();
+            Toast.makeText(MainActivity.this, goal.name + "\n" + getString(R.string.toast_goal_removed), Toast.LENGTH_SHORT).show();
     	}
-    	return true;
     }
-    
-    public boolean onMenuNewGoal(MenuItem item) {
+
+    public void onMenuNewGoal(MenuItem item) {
 		Intent intent = new Intent(this, NewGoalActivity.class);
 		startActivityForResult(intent, REQUEST_CODE_NEWGOAL);
-        return true;
+    }
+
+    public void onMenuHelp(MenuItem item) {
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.menu_help))
+                .setMessage(getString(R.string.text_help))
+                .setPositiveButton("Ok", null)
+                .show();
     }
     
     @Override
@@ -160,13 +154,13 @@ public class MainActivity extends Activity {
     }
     
  
-    public void previousDay(View view) {
+    public void previousDay() {
     	currDay.add(Calendar.DAY_OF_YEAR, -1);
     	updateCurrDay();
     	updateContent();    	    	
     }
     
-    public void nextDay(View view) {
+    public void nextDay() {
     	currDay.add(Calendar.DAY_OF_YEAR, +1);
     	updateCurrDay();
     	updateContent();
@@ -185,22 +179,25 @@ public class MainActivity extends Activity {
 	private void updateCurrDay() {
 		String str = DateFormat.getDateFormat(getApplicationContext()).format( currDay.getTime() );
 		mCurrDayText.setText( str );
-    	mDay.switchDate(currDay);
+    	mDay.setDateAndUpdate(currDay);
 	}
 
-	class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
        
         @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2, 
                 float velocityX, float velocityY) {
         	float x1 = event1.getX();
         	float x2 = event2.getX();
-        	
-        	if (x2 - x1 > 200.0) {
-        		previousDay( null );
+            float fling = x2-x1;
+
+            Log.i("FLING", "x2-x1: " + fling);
+
+        	if (fling > 150.0) {
+        		previousDay();
         	}
-        	if (x2 - x1 < -200.0) {
-        		nextDay( null );
+        	if (fling < -150.0) {
+        		nextDay();
         	}
             return true;
         }

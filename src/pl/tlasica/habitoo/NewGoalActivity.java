@@ -1,13 +1,12 @@
 package pl.tlasica.habitoo;
 
-import pl.tlasica.goalero.R;
-
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import pl.tlasica.goalero.R;
 
 public class NewGoalActivity extends Activity {
 

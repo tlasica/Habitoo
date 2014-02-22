@@ -4,7 +4,7 @@
         android:id="@+id/goal_success"
         android:orderInCategory="100"
         android:showAsAction="withText"
-        android:onClick="onMenuGoalSuccess"        
+        android:onClick="onMenuGoalSuccess"
         android:title="@string/list_action_success"/>
 
     <item
@@ -13,13 +13,6 @@
         android:showAsAction="withText"
         android:onClick="onMenuGoalFail"
         android:title="@string/list_action_fail"/>
-
-    <item
-        android:id="@+id/goal_clear"
-        android:orderInCategory="120"
-        android:showAsAction="withText"
-        android:onClick="onMenuGoalClear"
-        android:title="@string/list_action_clear"/>
 
     <item
         android:id="@+id/goal_stats"

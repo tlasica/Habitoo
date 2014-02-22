@@ -5,6 +5,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
     android:padding="10dp" >
       	
     <!-- Main part for two rows: name and additional text -->
@@ -26,7 +27,17 @@
 	        android:ellipsize="marquee"
 	        android:singleLine="true"
 	        android:text="Goal name"
-	        android:textSize="18sp" />
+	        android:textSize="26sp"
+            android:height="35dp"/>
+
+        <TextView
+                android:id="@+id/goal_since"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="since Mon, Dec 18th"
+                android:textSize="14dp"/>
 
 		<TextView
 	        android:id="@+id/goaltext"
@@ -35,7 +46,8 @@
 	        android:ellipsize="marquee"
 	        android:singleLine="false"
 	        android:text="Question or notes"
-	        android:textSize="10sp" />
+            android:height="25dp"
+            android:textSize="14dp"/>
 	    
 	</LinearLayout>
 
@@ -52,8 +64,8 @@
 
 		<ImageView
 			android:id="@+id/goalprogress"
-			android:layout_width="20dp"
-			android:layout_height="20dp"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
 			android:layout_gravity="center"
 			android:contentDescription="TODO"
 			android:src="@drawable/weather_clear" />
@@ -66,9 +78,39 @@
 			android:ellipsize="marquee"
 			android:singleLine="true"
 			android:text="1/21"
-			android:textSize="12sp" />
+            android:textSize="14sp"
+            android:textIsSelectable="false"/>
 
-	    
 	</LinearLayout>
-    
-</RelativeLayout> 
+    <!-- bottom line for special actions like "stop tracking" -->
+    <!--
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      xmlns:tools="http://schemas.android.com/tools"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_toEndOf="@+id/goalright"
+                      android:layout_alignParentBottom="true"
+                      android:layout_alignParentLeft="true"
+                      android:layout_alignParentRight="true"
+                      android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/action_stop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    android:text="@string/action_stop"
+                    android:textSize="14sp"
+                    android:clickable="true"
+                    android:onClick="onCancel"
+                    android:textColor="#0000ff"
+                    android:autoLink="web"
+                    android:focusable="false"
+                    android:textIsSelectable="false"/>
+
+        </LinearLayout>
+    -->
+
+    </RelativeLayout>

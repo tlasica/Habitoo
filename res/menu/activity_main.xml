@@ -6,5 +6,11 @@
         android:showAsAction="never"
         android:onClick="onMenuNewGoal"
         android:title="@string/menu_addgoal"/>
+    <item
+            android:id="@+id/menu_help"
+            android:orderInCategory="110"
+            android:showAsAction="never"
+            android:onClick="onMenuHelp"
+            android:title="@string/menu_help"/>
 
 </menu>
