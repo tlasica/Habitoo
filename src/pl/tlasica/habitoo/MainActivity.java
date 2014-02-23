@@ -30,7 +30,6 @@ public class MainActivity extends Activity {
 	//private List<GoalListItem>	goals;
 	private Day						mDay;
 	
-	protected Object mActionMode;
 	public int selectedItem = -1;
 	
     @Override
@@ -60,9 +59,8 @@ public class MainActivity extends Activity {
     	return new OnItemClickListener() {
     	      @Override
     	      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    	    	  	Log.d("LONGCLICK", String.format("pos=%d id=%d", position, id));
-      	        	selectedItem = position;
-      	        	view.showContextMenu();
+            selectedItem = position;
+            view.showContextMenu();
     	      }
     	};
 	}
@@ -94,15 +92,19 @@ public class MainActivity extends Activity {
     	}
     }
 
-    public boolean onMenuGoalStats(MenuItem item) {
+    public void onMenuGoalStats(MenuItem item) {
     	if (selectedItem >= 0) {
             GoalListItem goalListItem = mDay.goals().get(selectedItem);
             String name = goalListItem.name;
-            //TODO: new activity to show statistics (how?)
-            Toast.makeText(MainActivity.this, name + "\r\n: Statistics to be implemented", Toast.LENGTH_SHORT).show();
-	    	selectedItem = -1;
+            selectedItem = -1;
+            // open activity
+            Intent intent = new Intent(this, HistoryViewActivity.class);
+            intent.putExtra("GOAL_ID", goalListItem.goalId);
+            intent.putExtra("GOAL_NAME", goalListItem.name);
+            intent.putExtra("GOAL_SINCE", goalListItem.since.getTimeInMillis());
+            intent.putExtra("NOW", currDay.getTimeInMillis());
+            startActivity(intent);
     	}
-        return true;
     }
     
     public void onMenuGoalStop(MenuItem item) {

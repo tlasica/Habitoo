@@ -31,6 +31,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pl.tlasica.habitoo.MainActivity" />
         </activity>
+        <activity
+                android:name="pl.tlasica.habitoo.HistoryViewActivity"
+                android:label="History"/>
     </application>
 
 </manifest>

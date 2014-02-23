@@ -1,7 +1,6 @@
 package pl.tlasica.habitoo;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -38,7 +37,7 @@ public class GoalListAdapter extends ArrayAdapter<GoalListItem> {
 	        // set name
 	        TextView tvName = (TextView) row.findViewById(R.id.goalname);
 	        tvName.setText(item.name);
-	        int rgb = doneColor(item);
+	        int rgb = Handy.doneColor(item.done);
 	        tvName.setBackgroundColor(rgb);
 	        // set status icon
 	        ImageView ivProgress = (ImageView) row.findViewById(R.id.goalprogress);
@@ -83,11 +82,4 @@ public class GoalListAdapter extends ArrayAdapter<GoalListItem> {
         }
 	}
 
-	private int doneColor(GoalListItem i) {
-        if (i.done!=null && i.done) {
-            return Color.parseColor("#99CC00");
-        }
-        else return Color.WHITE;
-		//else return Color.parseColor("#FF4444"); (taki czerwony)
-	}
 }

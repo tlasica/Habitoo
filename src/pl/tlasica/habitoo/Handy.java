@@ -1,5 +1,7 @@
 package pl.tlasica.habitoo;
 
+import android.graphics.Color;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -40,4 +42,13 @@ public class Handy {
     public static String toString(Calendar tstamp) {
         return FORMAT.format(tstamp.getTime());
     }
+
+    public static int doneColor(Boolean done) {
+        if (done!=null && done) {
+            return Color.parseColor("#99CC00");
+        }
+        else return Color.WHITE;
+        //else return Color.parseColor("#FF4444"); (taki czerwony)
+    }
+
 }
