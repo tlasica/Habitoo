@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
-import pl.tlasica.goalero.R;
+import pl.tlasica.goalskeeper.R;
 
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;

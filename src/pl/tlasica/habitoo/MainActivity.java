@@ -15,7 +15,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import pl.tlasica.goalero.R;
+import pl.tlasica.goalskeeper.R;
 
 import java.util.Calendar;
 
