@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="pl.tlasica.habitoo.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,16 +23,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="pl.tlasica.habitoo.NewGoalActivity"
+            android:name=".NewGoalActivity"
             android:label="@string/newgoal_title" 
             android:exported="false"
-            android:parentActivityName="pl.tlasica.habitoo.MainActivity" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pl.tlasica.habitoo.MainActivity" />
         </activity>
         <activity
-                android:name="pl.tlasica.habitoo.HistoryViewActivity"
+                android:name=".HistoryViewActivity"
                 android:label="History"/>
     </application>
 

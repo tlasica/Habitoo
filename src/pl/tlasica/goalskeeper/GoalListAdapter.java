@@ -1,4 +1,4 @@
-package pl.tlasica.habitoo;
+package pl.tlasica.goalskeeper;
 
 import android.content.Context;
 import android.text.format.DateFormat;
@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import pl.tlasica.goalskeeper.R;
 
 import java.util.List;
 
@@ -38,7 +37,8 @@ public class GoalListAdapter extends ArrayAdapter<GoalListItem> {
 	        TextView tvName = (TextView) row.findViewById(R.id.goalname);
 	        tvName.setText(item.name);
 	        int rgb = Handy.doneColor(item.done);
-	        tvName.setBackgroundColor(rgb);
+	        //tvName.setBackgroundColor(rgb);
+            row.setBackgroundColor(rgb);
 	        // set status icon
 	        ImageView ivProgress = (ImageView) row.findViewById(R.id.goalprogress);
 	        int iconProgressId = iconProgress(item);

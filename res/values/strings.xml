@@ -3,10 +3,12 @@
 
     <string name="app_name">Goals Keeper</string>
     <string name="menu_addgoal">Add new goal...</string>
-    <string name="hint">tap item for actions...</string>
+    <string name="hint">
+        tap item to save a success (or failure), view history or stop tracking selected item
+    </string>
     <string name="list_action_success">Yeah! I succeeded!</string>
     <string name="list_action_fail">Well, actually... I failed :-(</string>
-    <string name="list_action_stats">Show my performance...</string>
+    <string name="list_action_stats">Show history...</string>
     <string name="list_action_stop">Stop tracking this goal</string>
     <string name="newgoal_text">Text</string>
     <string name="newgoal_name_hint">Name</string>
@@ -33,5 +35,10 @@
         \n\n
         Good luck!
     </string>
+    <string name="history_legend">Key:</string>
+    <string name="history_legend_success">day with success</string>
+    <string name="history_button_close">Close and go back</string>
+    <string name="history_legend_fail">day w/o success</string>
+    <string name="history_legend_notrack">not tracked</string>
 
 </resources>

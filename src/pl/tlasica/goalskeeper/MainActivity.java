@@ -1,4 +1,4 @@
-package pl.tlasica.habitoo;
+package pl.tlasica.goalskeeper;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,7 +15,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import pl.tlasica.goalskeeper.R;
 
 import java.util.Calendar;
 
@@ -183,6 +182,20 @@ public class MainActivity extends Activity {
 		mCurrDayText.setText( str );
     	mDay.setDateAndUpdate(currDay);
 	}
+
+    public void onNextClick(View view) {
+        nextDay();
+    }
+
+    public void onPrevClick(View view) {
+        previousDay();
+    }
+
+    public void onAddClick(View view) {
+        Log.d("MAIN", "onAddClick()");
+        Intent intent = new Intent(this, NewGoalActivity.class);
+        startActivityForResult(intent, REQUEST_CODE_NEWGOAL);
+    }
 
     class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
        

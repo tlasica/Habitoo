@@ -1,4 +1,4 @@
-package pl.tlasica.habitoo;
+package pl.tlasica.goalskeeper;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,12 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import pl.tlasica.goalero.R;
+
 
 public class NewGoalActivity extends Activity {
 
-	public final static String PARAM_MOOD_STR = "pl.tlasica.moodtracker.MOOD";
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

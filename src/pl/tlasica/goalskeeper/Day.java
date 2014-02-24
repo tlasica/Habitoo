@@ -1,4 +1,4 @@
-package pl.tlasica.habitoo;
+package pl.tlasica.goalskeeper;
 
 import android.content.Context;
 import android.util.Log;

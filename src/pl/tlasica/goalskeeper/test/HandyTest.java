@@ -1,7 +1,7 @@
-package pl.tlasica.habitoo.test;
+package pl.tlasica.goalskeeper.test;
 
 import org.junit.Test;
-import pl.tlasica.habitoo.Handy;
+import pl.tlasica.goalskeeper.Handy;
 
 import java.util.Calendar;
 

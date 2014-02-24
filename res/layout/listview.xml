@@ -5,13 +5,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:padding="10dp" >
+    android:padding="5dp" >
       	
     <!-- Main part for two rows: name and additional text -->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    	xmlns:tools="http://schemas.android.com/tools"
-    	android:layout_width="match_parent"
+                  android:layout_width="match_parent"
     	android:layout_height="match_parent"
     	android:layout_alignParentTop="true"
     	android:layout_alignParentLeft="true"
@@ -46,21 +44,20 @@
 	        android:ellipsize="marquee"
 	        android:singleLine="false"
 	        android:text="Question or notes"
-            android:height="25dp"
             android:textSize="14dp"/>
 	    
 	</LinearLayout>
 
     <!-- Right part = some stats -->
-    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
-    	android:id="@+id/goalright"
-    	android:layout_marginLeft="15dp"
-    	android:layout_width="wrap_content"
-    	android:layout_height="match_parent"
-    	android:layout_alignParentTop="true"
-    	android:layout_alignParentRight="true"
-    	android:orientation="vertical"
-    	>
+    <LinearLayout
+            android:id="@+id/goalright"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical"
+            >
 
 		<ImageView
 			android:id="@+id/goalprogress"

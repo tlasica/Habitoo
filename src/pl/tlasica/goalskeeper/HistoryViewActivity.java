@@ -1,7 +1,8 @@
-package pl.tlasica.habitoo;
+package pl.tlasica.goalskeeper;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -12,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
-import pl.tlasica.goalskeeper.R;
 
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -33,6 +33,7 @@ public class HistoryViewActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         setContentView(R.layout.activity_history);
 
@@ -42,8 +43,6 @@ public class HistoryViewActivity extends Activity {
         long ms = getIntent().getLongExtra("NOW", 0);
         mUntilDate = Calendar.getInstance();
         mUntilDate.setTimeInMillis(ms);
-        TextView tvSince = (TextView) findViewById(R.id.textview_history_until);
-        tvSince.setText(Handy.toString(mUntilDate));
 
         // get goal name
         String name = getIntent().getStringExtra("GOAL_NAME");
@@ -64,6 +63,9 @@ public class HistoryViewActivity extends Activity {
         mTrackedSince.clear(Calendar.MINUTE);
         mTrackedSince.clear(Calendar.SECOND);
         mTrackedSince.clear(Calendar.MILLISECOND);
+        //String str = DateFormat.getDateFormat(getApplicationContext()).format( mTrackedSince.getTime() );
+        //TextView tvSince = (TextView) findViewById(R.id.textview_history_until);
+        //tvSince.setText(str);
 
         List<DataItem> data = this.buildAdapterData(id);
 
@@ -114,6 +116,9 @@ public class HistoryViewActivity extends Activity {
         */
     }
 
+    public void onCloseClick(View view) {
+        this.finish();
+    }
 }
 
 class DataItem {

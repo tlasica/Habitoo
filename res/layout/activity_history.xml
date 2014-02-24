@@ -14,16 +14,6 @@
             android:textSize="26sp"
             android:text="name of goal"
             android:textIsSelectable="false"/>
-    <TextView
-            android:id="@+id/textview_history_until"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textSize="18sp"
-            android:clickable="false"
-            android:text="until yyyy-mm-dd"
-            />
 
     <GridView xmlns:android="http://schemas.android.com/apk/res/android"
               android:id="@+id/historygrid"
@@ -34,8 +24,64 @@
               android:columnWidth="100dp"
               android:stretchMode="columnWidth"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent" >
+              android:layout_height="wrap_content" >
 
     </GridView>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:text="@string/history_legend"
+            />
+    <!-- green: success -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_marginLeft="10dp"
+                  android:paddingTop="5dp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+        <TextView
+                android:layout_marginTop="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:clickable="false"
+                android:background="#99CC00"
+                android:text="@string/history_legend_success"
+                />
+        <TextView
+                android:layout_marginTop="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:clickable="false"
+                android:background="@android:color/white"
+                android:text="@string/history_legend_fail"
+                />
+        <TextView
+                android:layout_marginTop="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:clickable="false"
+                android:textColor="#d3d3d3"
+                android:background="@android:color/white"
+                android:text="@string/history_legend_notrack"
+                />
+
+    </LinearLayout>
+
+    <Button
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history_button_close"
+            android:onClick="onCloseClick"
+            />
+
 
 </LinearLayout>

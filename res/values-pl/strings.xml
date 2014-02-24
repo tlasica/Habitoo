@@ -3,10 +3,12 @@
 
     <string name="app_name">Goals Keeper</string>
     <string name="menu_addgoal">Postaw sobie nowy cel...</string>
-    <string name="hint">kliknij na element...</string>
+    <string name="hint">
+        kliknij na element aby zanotować sukces, obejrzeć historię lub przestać monitorować postanowienie
+    </string>
     <string name="list_action_success">Taaak! Dzisiaj się udało!</string>
     <string name="list_action_fail">No niestety :-(</string>
-    <string name="list_action_stats">Pokaż statystyki...</string>
+    <string name="list_action_stats">Pokaż historię...</string>
     <string name="list_action_stop">Przestaję monitorować</string>
     <string name="newgoal_text">Text</string>
     <string name="newgoal_name_hint">Name</string>
@@ -35,5 +37,10 @@
         \n\n
         Powodzenia!
     </string>
+    <string name="history_legend">Legenda:</string>
+    <string name="history_button_close">Zamknij</string>
+    <string name="history_legend_success">dzień z sukcesem</string>
+    <string name="history_legend_fail">dzień bez sukcesu</string>
+    <string name="history_legend_notrack">przed ustaleniem celu</string>
 
 </resources>
