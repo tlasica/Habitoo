@@ -15,8 +15,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 
 import java.util.Calendar;
+
+import static com.google.android.gms.common.GooglePlayServicesUtil.isGooglePlayServicesAvailable;
 
 public class MainActivity extends Activity {
 
@@ -29,7 +34,7 @@ public class MainActivity extends Activity {
 	//private List<GoalListItem>	goals;
 	private Day						mDay;
 	
-	public int selectedItem = -1;
+	private int selectedItem = -1;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,22 @@ public class MainActivity extends Activity {
 		// update content
 		updateCurrDay();
 		updateContent();
+        // check google play services
+        int errorCode = isGooglePlayServicesAvailable(this);
+        if (0 == errorCode) {
+            // add ad
+            AdView adView = (AdView)this.findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder()
+                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                    //.addTestDevice("TEST_DEVICE_ID")
+                    .build();
+            adView.loadAd(adRequest);
+        }
+        else {
+            String msg = GooglePlayServicesUtil.getErrorString(errorCode);
+            if (msg!=null) Log.e("GOOGLEPLAYSERVICES", msg);
+        }
+
     }
 
     private OnItemClickListener onItemClickListener() {
@@ -155,13 +176,13 @@ public class MainActivity extends Activity {
     }
     
  
-    public void previousDay() {
+    void previousDay() {
     	currDay.add(Calendar.DAY_OF_YEAR, -1);
     	updateCurrDay();
     	updateContent();    	    	
     }
     
-    public void nextDay() {
+    void nextDay() {
     	currDay.add(Calendar.DAY_OF_YEAR, +1);
     	updateCurrDay();
     	updateContent();
@@ -197,7 +218,7 @@ public class MainActivity extends Activity {
         startActivityForResult(intent, REQUEST_CODE_NEWGOAL);
     }
 
-    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+    private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
        
         @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2, 

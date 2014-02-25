@@ -22,9 +22,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-/**
- * Created by tomek on 23.02.14.
- */
 public class HistoryViewActivity extends Activity {
 
     GridView    mGridView;
@@ -144,9 +141,9 @@ class HistoryViewAdapter extends BaseAdapter {
 
     private final List<ContentItem>    content = new LinkedList<ContentItem>();
 
-    int                         firstDayOfWeek = Calendar.getInstance().getFirstDayOfWeek();
+    private int                         firstDayOfWeek = Calendar.getInstance().getFirstDayOfWeek();
     int[]                       weekDays = new int[7];
-    String[]                    weekdayNames = new String[7];
+    private String[]                    weekdayNames = new String[7];
 
     public HistoryViewAdapter(Context context, List<DataItem> history) {
         this.context = context;

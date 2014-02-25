@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class GoalListAdapter extends ArrayAdapter<GoalListItem> {
+class GoalListAdapter extends ArrayAdapter<GoalListItem> {
 
 	public GoalListAdapter(Context context, int resource, List<GoalListItem> objects) {
 		super(context, resource, R.id.goalname, objects);

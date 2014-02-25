@@ -17,7 +17,7 @@ public class Handy {
 		return acc;
 	}
 
-    public static void resetTime(Calendar cal) {
+    private static void resetTime(Calendar cal) {
         cal.set(Calendar.HOUR, 0);
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);

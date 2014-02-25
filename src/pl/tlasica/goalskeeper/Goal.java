@@ -2,7 +2,7 @@ package pl.tlasica.goalskeeper;
 
 import java.util.Calendar;
 
-public class Goal {
+class Goal {
 
     public static final int TRACKING_WINDOW_DAYS = 14;
 

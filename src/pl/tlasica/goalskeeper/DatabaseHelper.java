@@ -15,10 +15,10 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
 	// If you change the database schema, you must increment the database version.
-    public static final int 		DATABASE_VERSION = 1;
-    public static final String 	DATABASE_NAME = "goalero.db";
+    private static final int 		DATABASE_VERSION = 1;
+    private static final String 	DATABASE_NAME = "goalero.db";
 
-	static final String SQL_CREATE_GOAL =
+	private static final String SQL_CREATE_GOAL =
 	"CREATE TABLE goal ( " +
 	"_id INTEGER PRIMARY KEY AUTOINCREMENT," +
 	"name TEXT NOT NULL," +
@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	"desc TEXT," +
 	"extra TEXT);";
 			
-	static final String SQL_CREATE_GOALDAY =
+	private static final String SQL_CREATE_GOALDAY =
 	"CREATE TABLE goalday ( " +
 	"_id INTEGER PRIMARY KEY AUTOINCREMENT," +
 	"goalid INTEGER NOT NULL," +			
@@ -104,7 +104,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	    		gd.goalId = cur.getInt(1);
 	    		gd.tstamp = Handy.numToCal( cur.getInt(2));
 	    		Integer status = cur.getInt(3);
-	    		if (status!=null) gd.status = (status>0);
+	    		gd.status = (status>0);
                 gd.notes = cur.getString(4);
 	    		res.add(gd);
 	    	} while( cur.moveToNext() );
@@ -147,7 +147,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 gd.goalId = cur.getInt(1);
                 gd.tstamp = Handy.numToCal( cur.getInt(2));
                 Integer status = cur.getInt(3);
-                if (status!=null) gd.status = (status>0);
+                gd.status = (status>0);
                 gd.notes = cur.getString(4);
                 res.add(gd);
                 Log.d("DATABASE", "history load goalid: " + gd.goalId + " tstamp:" + Handy.toString(gd.tstamp) );
