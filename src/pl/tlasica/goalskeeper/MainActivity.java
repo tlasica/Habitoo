@@ -87,12 +87,14 @@ public class MainActivity extends Activity {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-      super.onCreateContextMenu(menu, v, menuInfo);
-      MenuInflater inflater = getMenuInflater();
-      inflater.inflate(R.menu.listview_actions, menu);
+        Log.d("MAIN","onCreateContextMenu()");
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.listview_actions, menu);
     }    
 
     public void onMenuGoalSuccess(MenuItem item) {
+        Log.d("MAIN","onMenuGoalsSuccess(), selectedItem:" + selectedItem);
     	if (selectedItem >= 0) {
 	    	String name = mDay.goals().get(selectedItem).name;
 	    	mDay.markDone(selectedItem, true);
